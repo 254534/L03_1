@@ -10,10 +10,12 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAlignment="center"
         android:text="f11" />
 
     <RatingBar
         android:id="@+id/ratingBar1"
+        android:layout_gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </LinearLayout>

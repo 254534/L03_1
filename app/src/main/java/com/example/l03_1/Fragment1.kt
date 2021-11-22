@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import androidx.appcompat.app.AppCompatActivity
 
 // TODO: Rename parameter arguments, choose names that match
@@ -49,42 +50,50 @@ class Fragment1 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val radiobutton1: RadioButton = requireActivity().findViewById(R.id.radioButton1)
-        val radiobutton2: RadioButton = requireActivity().findViewById(R.id.radioButton2)
-        radiobutton1.setOnClickListener(radiobuttonListener)
-        radiobutton2.setOnClickListener(radiobuttonListener)
+//        val radiobutton1: RadioButton = requireActivity().findViewById(R.id.radioButton1)
+//        val radiobutton2: RadioButton = requireActivity().findViewById(R.id.radioButton2)
+//        radiobutton1.setOnClickListener(radiobuttonListener)
+//        radiobutton2.setOnClickListener(radiobuttonListener)
+        (requireActivity().findViewById(R.id.f1options) as RadioGroup)
+            .setOnCheckedChangeListener(radioGroupListener)
     }
-
-    val radiobuttonListener = View.OnClickListener { view ->
-        when(view.getId()) {
-            R.id.radioButton1 -> {
-                listF1.onSelect(1)
-            }
-            R.id.radioButton2 -> {
-                listF1.onSelect(2)
-            }
+    val radioGroupListener = RadioGroup.OnCheckedChangeListener { group, checkedId ->
+        when (checkedId) {
+            R.id.radioButton1 -> listF1.onSelect(1)
+            R.id.radioButton2 -> listF1.onSelect(2)
         }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Fragment1.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Fragment1().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
+//    val radiobuttonListener = View.OnClickListener { view ->
+//        when(view.getId()) {
+//            R.id.radioButton1 -> {
+//                listF1.onSelect(1)
+//            }
+//            R.id.radioButton2 -> {
+//                listF1.onSelect(2)
+//            }
+//        }
+//    }
+
+//    companion object {
+//        /**
+//         * Use this factory method to create a new instance of
+//         * this fragment using the provided parameters.
+//         *
+//         * @param param1 Parameter 1.
+//         * @param param2 Parameter 2.
+//         * @return A new instance of fragment Fragment1.
+//         */
+//        // TODO: Rename and change types and number of parameters
+//        @JvmStatic
+//        fun newInstance(param1: String, param2: String) =
+//            Fragment1().apply {
+//                arguments = Bundle().apply {
+//                    putString(ARG_PARAM1, param1)
+//                    putString(ARG_PARAM2, param2)
+//                }
+//            }
+//    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
