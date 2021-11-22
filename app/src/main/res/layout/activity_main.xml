@@ -25,19 +25,28 @@
 
     </FrameLayout>
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="vp1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="vp2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        tools:layout_editor_absoluteX="1dp">
+
+        <TableRow>
+            <Button
+                android:id="@+id/button1"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="vp1" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="3dp"
+                android:text="vp2" />
+        </TableRow>
+
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
