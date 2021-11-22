@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.L03_1">
         <activity
+            android:name=".SwipeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TabsActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".TabsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
