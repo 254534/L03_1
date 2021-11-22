@@ -1,7 +1,9 @@
 package com.example.l03_1
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 
@@ -12,9 +14,16 @@ class MainActivity : AppCompatActivity(), Fragment1.OnSelectListener {
     private val TAG_F11 = "Fragment11"
     private val TAG_F12 = "Fragment12"
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val button1: Button = findViewById(R.id.button1)
+        button1.setOnClickListener { view ->
+            startActivity(
+                Intent(this, TabsActivity::class.java)
+            )
+        }
 
         if (savedInstanceState == null) {
             f11 = Fragment11()
