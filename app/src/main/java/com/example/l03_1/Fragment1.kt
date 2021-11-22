@@ -1,10 +1,13 @@
 package com.example.l03_1
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,6 +24,13 @@ class Fragment1 : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    lateinit var actA: AppCompatActivity
+    lateinit var listF1:OnSelectListener
+
+    interface OnSelectListener {
+        fun onSelect(option: Int)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -35,6 +45,25 @@ class Fragment1 : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_1, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val radiobutton1: RadioButton = requireActivity().findViewById(R.id.radioButton1)
+        val radiobutton2: RadioButton = requireActivity().findViewById(R.id.radioButton2)
+        radiobutton1.setOnClickListener(radiobuttonListener)
+        radiobutton2.setOnClickListener(radiobuttonListener)
+    }
+
+    val radiobuttonListener = View.OnClickListener { view ->
+        when(view.getId()) {
+            R.id.radioButton1 -> {
+                listF1.onSelect(1)
+            }
+            R.id.radioButton2 -> {
+                listF1.onSelect(2)
+            }
+        }
     }
 
     companion object {
@@ -55,5 +84,16 @@ class Fragment1 : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        try {
+            actA = context as AppCompatActivity
+            listF1 = context as OnSelectListener
+        }
+        catch (e: ClassCastException) {
+            throw java.lang.ClassCastException(actA.toString() + "musi implementować OnSelectListener")
+        }
     }
 }
