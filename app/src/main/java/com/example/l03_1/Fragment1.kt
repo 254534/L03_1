@@ -50,10 +50,6 @@ class Fragment1 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        val radiobutton1: RadioButton = requireActivity().findViewById(R.id.radioButton1)
-//        val radiobutton2: RadioButton = requireActivity().findViewById(R.id.radioButton2)
-//        radiobutton1.setOnClickListener(radiobuttonListener)
-//        radiobutton2.setOnClickListener(radiobuttonListener)
         (requireActivity().findViewById(R.id.f1options) as RadioGroup)
             .setOnCheckedChangeListener(radioGroupListener)
     }
@@ -64,16 +60,6 @@ class Fragment1 : Fragment() {
         }
     }
 
-//    val radiobuttonListener = View.OnClickListener { view ->
-//        when(view.getId()) {
-//            R.id.radioButton1 -> {
-//                listF1.onSelect(1)
-//            }
-//            R.id.radioButton2 -> {
-//                listF1.onSelect(2)
-//            }
-//        }
-//    }
 
 //    companion object {
 //        /**
